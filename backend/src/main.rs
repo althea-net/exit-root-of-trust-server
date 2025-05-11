@@ -1,15 +1,16 @@
+use actix_web::{App, HttpServer, web};
+use crossbeam::queue::SegQueue;
 use env_logger::Env;
 use exit_trust_root_lib::config::{Config, ConfigAndCache};
-use actix_web::{web, App, HttpServer};
-use crossbeam::queue::SegQueue;
-use exit_trust_root_lib::endpoints::{return_signed_exit_contract_data, start_client_registration, submit_registration_code};
+use exit_trust_root_lib::endpoints::{
+    return_signed_exit_contract_data, start_client_registration, submit_registration_code,
+};
 use exit_trust_root_lib::register_client_batch_loop::register_client_batch_loop;
 use exit_trust_root_lib::signature_update_loop;
 use log::info;
 use openssl::ssl::{SslAcceptor, SslMethod};
 use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
-
 
 const CONFIG_PATH: &str = "/etc/exit_trust_root.toml";
 /// The backend RPC port for the info server fucntions implemented in this repo
