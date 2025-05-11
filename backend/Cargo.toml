@@ -1,5 +1,5 @@
 [package]
-name = "backend"
+name = "exit_trust_root_server"
 version = "0.1.0"
 edition = "2024"
 
@@ -8,9 +8,8 @@ name = "exit_trust_root_server"
 path = "src/main.rs"
 
 [dependencies]
-clap = {version="4", features=["derive"]}
-althea_types = { git = "https://github.com/althea-net/rita.git", rev = "c265d40ebe72d8c2ee15ce90d1557bba611f7685"}
-exit_trust_root = { git = "https://github.com/althea-net/rita.git", rev = "c265d40ebe72d8c2ee15ce90d1557bba611f7685"}
+althea_types = { git = "https://github.com/althea-net/rita.git", rev = "59915b81c6068a6abfa1a1d319899a55519e116e"}
+exit_trust_root_lib = { git = "https://github.com/althea-net/rita.git", rev = "59915b81c6068a6abfa1a1d319899a55519e116e"}
 awc = {version = "3.5", default-features = false, features=["openssl", "compress-gzip", "compress-zstd"]}
 actix-web = { version = "4.9", default-features = false, features = ["openssl", "compress-gzip", "compress-zstd", "macros"] }
 openssl = {version = "0.10", features = ["vendored"]}
