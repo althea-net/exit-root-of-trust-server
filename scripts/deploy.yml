@@ -1,0 +1,10 @@
+# Sets up the root of trust server and it's frontend
+
+- name: Install Exit Root of Trust
+  hosts: trust_root
+  user: root
+  roles:
+    # frontend has to go first becuase
+    # the backend role also needs the ssl certificate
+    - frontend
+    - backend

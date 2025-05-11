@@ -1,0 +1,22 @@
+---
+# This task installs the necessary dependencies for the frontend.
+- name: Install Dependencies
+  ansible.builtin.apt:
+    name: rsync,nginx,htop,vim,iftop,python3-certbot-nginx
+    state: present
+    update_cache: yes
+  become: true
+
+# If this fails check out status of certbot: https://letsencrypt.status.io/
+- name: ISSUE CERT
+  command: certbot --nginx -d exitroot.althea.net --email justin@althea.net --noninteractive --agree-tos --redirect --expand
+
+- name: Setup certbot-renew cron
+  ansible.builtin.cron:
+    name: certbot-renew
+    minute: 0
+    hour: 0,12
+    user: root
+    job: >
+      python3 -c ''import random; import time; time.sleep(random.random() * 3600)''
+      /usr/local/bin/certbot-auto renew -q | sudo tee -a /etc/crontab > /dev/null

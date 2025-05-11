@@ -1,0 +1,14 @@
+# This is a systemd service for Althea Exit Trust Root
+[Unit]
+Description=Exit Trust Root
+Requires=network.target
+
+[Service]
+Type=simple
+RestartSec=10
+Restart=always
+Environment=RUST_LOG=INFO RUST_BACKTRACE=FULL
+ExecStart=/usr/bin/exit_trust_root_server
+
+[Install]
+WantedBy=default.target

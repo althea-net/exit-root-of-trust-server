@@ -9,7 +9,6 @@ use log::info;
 use openssl::ssl::{SslAcceptor, SslMethod};
 use std::collections::HashMap;
 use std::sync::{Arc, RwLock};
-use tokio::join;
 
 
 const CONFIG_PATH: &str = "/etc/exit_trust_root.toml";
