@@ -26,7 +26,9 @@ fn load_config(path: &str) -> Config {
 async fn main() {
     // On Linux static builds we need to probe ssl certs path to be able to
     // do TLS stuff.
-    openssl_probe::probe();
+    unsafe {
+        openssl_probe::init_openssl_env_vars();
+    }
     env_logger::Builder::from_env(Env::default().default_filter_or("info")).init();
 
     let args = load_config(CONFIG_PATH);
