@@ -8,8 +8,8 @@ name = "exit_trust_root_server"
 path = "src/main.rs"
 
 [dependencies]
-althea_types = { git = "https://github.com/althea-net/rita.git", rev = "edff55f6d8fe6e55cafdcc7ae0a39125aa8d0304"}
-exit_trust_root_lib = { git = "https://github.com/althea-net/rita.git", rev = "edff55f6d8fe6e55cafdcc7ae0a39125aa8d0304"}
+althea_types = { git = "https://github.com/althea-net/rita.git", rev = "aa91f1d47f5747ba27006c643c0cb73fb4b81e7c"}
+exit_trust_root_lib = { git = "https://github.com/althea-net/rita.git", rev = "aa91f1d47f5747ba27006c643c0cb73fb4b81e7c"}
 awc = {version = "3.5", default-features = false, features=["openssl", "compress-gzip", "compress-zstd"]}
 actix-web = { version = "4.9", default-features = false, features = ["openssl", "compress-gzip", "compress-zstd", "macros"] }
 openssl = {version = "0.10", features = ["vendored"]}
